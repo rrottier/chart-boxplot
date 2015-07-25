@@ -48,6 +48,9 @@ calcBoxplot :: (Ord s, Integral a) => FoldLike a (Record rs) (Record rs) a a ->
 calcBoxplot t fs = zip [0.5..] $ map (\k -> boxValues t (fs M.! k)) $ M.keys fs
 
 
+
+-- | Create a boxplot in a file by using the supplied variables for grouping and plotting
+--boxPlot <filename> <variable to plot> <variable to use for grouping> <frame to plot>
 boxPlot :: (Foldable f, Integral a, Ord s) => FilePath ->
                                               FoldLike a (Record rs) (Record rs) a a ->
                                               FoldLike s (Record rs) (Record rs) s s ->
